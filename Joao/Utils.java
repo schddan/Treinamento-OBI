@@ -6,18 +6,18 @@ import java.util.Scanner;
 public class Utils {
     public static class ScanUtil {
         public static String[] nextArray(Scanner scn) {
-            return scn.nextLine().split("[,.\\s]");
+            return scn.nextLine().split("\\W+");
         }
 
         public static int[] nextIntArray(Scanner scn) {
             return Arrays.stream(
-                    scn.nextLine().split("[,.\\s]")
+                    scn.nextLine().split("\\D+")
             ).mapToInt(Integer::parseInt).toArray();
         }
 
         public static double[] nextDoubleArray(Scanner scn) {
             return Arrays.stream(
-                    scn.nextLine().split(" ")
+                    scn.nextLine().replace(',', '.').split("[^\d,.]+")
             ).mapToDouble(Double::parseDouble).toArray();
         }
 
